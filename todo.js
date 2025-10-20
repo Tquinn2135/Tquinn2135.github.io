@@ -3,7 +3,6 @@ const addButton = document.getElementById('addButton')
 const newTodoInput = document.getElementById('new-todo')
 const todoList = document.querySelector('.todo-list')
 
-
 const renderTodos = () => {
     todoList.innerHTML = ''
     todos.forEach(todo => {
