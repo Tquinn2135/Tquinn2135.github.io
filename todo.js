@@ -11,6 +11,7 @@ const renderTodos = () => {
         todoList.append(li)
     })
 }
+
 renderTodos()
 
 addButton.addEventListener('click', () => {

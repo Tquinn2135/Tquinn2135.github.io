@@ -11,9 +11,12 @@
 
 li {
     position: relative;
-    font-size: 24px;    
-    background-color: rgb(42, 44, 44);
+    font-size: 24px;
     border: 2px solid rgb(247, 89, 27);
     border-radius: 5px;
-    margin: 20px;
+    margin: 30px;
+}
+
+#inputs{
+    padding: 25px;
 }
