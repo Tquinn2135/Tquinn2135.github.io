@@ -1,30 +1,26 @@
-// Get the list from local storage
-const todos = JSON.parse(localStorage.getItem('todo-list')) || []
-
-// Add a new item to the list
-todos.push({ text: input.value, completed: false })
-
-// Save the list to local storage
-localStorage.setItem('todo-list', JSON.stringify(todos))
-
-// Clear the li's before we recreate them
-todoList.innerHTML = ''
-
-// Create and add new list items to the DOM
-const li = document.createElement('li')
-li.textContent = todo.text
-todoList.append(li)
-
-const toDoItems = [
-    { text: 'Learn JavaScript', completed: false },
-    { text: 'Build a to-do app', completed: false },
-    { text: 'Profit!', completed: false }
-]
-
-toDoItems.forEach(toDoItems => console.log(toDoItems))
+const todos = JSON.parse(localStorage.getItem('todos')) || [];
+const addButton = document.getElementById('addButton');
+const newTodoInput = document.getElementById('new-todo');
+const todoList = document.querySelector('.todo-list');
 
 
+const renderTodos = () => {
+    todoList.innerHTML = '';
+    todos.forEach(todo => {
+        const li = document.createElement('li');
+        li.textContent = todo.Text;
+        todoList.append(li);
+    });
+};
+renderTodos();
 
-// store items in local storage
-localStorage.setItem('todo-list', JSON.stringify(todos))
-
+addButton.addEventListener('click', () => {
+    const newTodoText = newTodoInput.value.trim();
+    if (newTodoText !== '') {
+        const newTodo = { Text: newTodoText, Completed: false };
+        todos.push(newTodo);
+        localStorage.setItem('todos', JSON.stringify(todos));
+        renderTodos();
+        newTodoInput.value = '';
+    }
+});
